@@ -5,7 +5,7 @@ import { Leaf, Recycle, ShoppingCart, Truck, ShieldCheck, ChevronRight, Package,
 
 const Navbar = () => (
   <nav className="flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-100">
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2"> 
       <div className="bg-green-600 p-1.5 rounded-lg">
         <Leaf className="text-white w-5 h-5" />
       </div>
