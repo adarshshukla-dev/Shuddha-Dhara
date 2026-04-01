@@ -4,12 +4,17 @@ import React, { useState } from 'react';
 import { Leaf, ShoppingCart, Truck, ShieldCheck, Package, ArrowRight, X, Globe, Star, CheckCircle2 } from 'lucide-react';
 
 export default function ShuddhaDharaSite() {
-  // Cart items ko array mein store kar rahe hain taaki details dikh sakein
   const [cartItems, setCartItems] = useState([]);
-  const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [toast, setToast] = useState("");
+
+  const products = [
+    { name: "Arhar Dal (Pure)", price: "160", weight: "1kg", image: "https://images.unsplash.com/photo-1585994192730-981844a70665?q=80&w=400" },
+    { name: "Basmati Rice", price: "125", weight: "1kg", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=400" },
+    { name: "Lakadong Turmeric", price: "85", weight: "250g", image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=400" },
+    { name: "Kabuli Chana", price: "140", weight: "1kg", image: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?q=80&w=400" }
+  ];
 
   const addToCart = (product) => {
     setCartItems(prev => [...prev, product]);
@@ -33,7 +38,7 @@ export default function ShuddhaDharaSite() {
   return (
     <div className="min-h-screen bg-[#080808] text-stone-300 selection:bg-green-600 pb-20">
       
-      {/* --- PREMIUM TOAST --- */}
+      {/* --- TOAST --- */}
       {toast && (
         <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] bg-white text-black px-8 py-4 rounded-full font-black shadow-2xl flex items-center gap-3 animate-in slide-in-from-bottom border border-stone-200">
           <CheckCircle2 className="w-5 h-5 text-green-600" /> {toast}
@@ -81,7 +86,7 @@ export default function ShuddhaDharaSite() {
         </div>
       </section>
 
-      {/* --- IMPACT SECTION --- */}
+      {/* --- IMPACT SECTION (Vapas Added) --- */}
       <section id="impact" className="py-12 px-8">
         <div className="max-w-7xl mx-auto bg-stone-900 rounded-[4rem] p-16 border border-stone-800 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden">
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-green-600/10 rounded-full blur-[100px]"></div>
@@ -102,7 +107,7 @@ export default function ShuddhaDharaSite() {
         </div>
       </section>
 
-      {/* --- PROCESS SECTION --- */}
+      {/* --- PROCESS SECTION (Vapas Added) --- */}
       <section id="how" className="py-24 px-8 max-w-7xl mx-auto text-center">
         <h2 className="text-5xl font-black text-white mb-20 tracking-tighter italic uppercase">Simple 3-Step Loop</h2>
         <div className="grid md:grid-cols-3 gap-10">
@@ -122,21 +127,19 @@ export default function ShuddhaDharaSite() {
         </div>
       </section>
 
-      {/* --- STORE SECTION --- */}
-      <section id="shop" className="py-24 px-8 max-w-7xl mx-auto bg-[#0A0A0A] rounded-[5rem] border border-stone-900/50">
-        <h2 className="text-5xl font-black tracking-tighter text-white uppercase italic mb-16 text-center md:text-left">The Store.</h2>
+      {/* --- STORE SECTION (Photos included) --- */}
+      <section id="shop" className="py-24 px-8 max-w-7xl mx-auto bg-[#0A0A0A] rounded-[5rem] border border-stone-900/50 shadow-inner">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 px-4">
+          <h2 className="text-5xl font-black tracking-tighter text-white uppercase italic underline decoration-stone-800">The Store.</h2>
+          <div className="px-6 py-2 bg-stone-900 rounded-full text-[10px] font-black text-stone-400 border border-stone-800 tracking-widest uppercase">Next Delivery: Sunday</div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { name: "Arhar Dal (Pure)", price: "160", weight: "1kg" },
-            { name: "Basmati Rice", price: "125", weight: "1kg" },
-            { name: "Lakadong Turmeric", price: "85", weight: "250g" },
-            { name: "Kabuli Chana", price: "140", weight: "1kg" }
-          ].map((prod) => (
-            <div key={prod.name} className="bg-stone-900 p-8 rounded-[3.5rem] border border-stone-800 hover:border-green-600 transition-all group">
-              <div className="aspect-square bg-stone-950 rounded-[2.5rem] mb-8 flex items-center justify-center border border-stone-800 group-hover:bg-green-950/20">
-                <Package className="w-14 h-14 text-stone-800 group-hover:text-green-600 transition-all" />
+          {products.map((prod) => (
+            <div key={prod.name} className="bg-stone-900 p-8 rounded-[3.5rem] border border-stone-800 hover:border-green-600 transition-all group overflow-hidden">
+              <div className="aspect-square bg-stone-950 rounded-[2.5rem] mb-8 overflow-hidden border border-stone-800 group-hover:border-green-900 transition-colors shadow-2xl">
+                <img src={prod.image} alt={prod.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500 group-hover:scale-110" />
               </div>
-              <h4 className="font-black text-xl mb-1 text-white">{prod.name}</h4>
+              <h4 className="font-black text-xl mb-1 text-white tracking-tight">{prod.name}</h4>
               <p className="text-xs font-bold text-stone-600 uppercase mb-8 tracking-widest">{prod.weight} Jar</p>
               <div className="flex justify-between items-center bg-black/40 p-4 rounded-2xl border border-stone-800">
                 <span className="text-2xl font-black text-green-500">₹{prod.price}</span>
@@ -147,9 +150,9 @@ export default function ShuddhaDharaSite() {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="mt-12 border-t border-stone-900/50 pt-12 pb-10 px-8 max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+      {/* --- FOOTER (Proper Spacing & Clear) --- */}
+      <footer className="mt-20 border-t border-stone-900/50 pt-16 pb-12 px-8 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
           <div className="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 transition cursor-default">
             <div className="bg-stone-800 p-1.5 rounded-lg"><Leaf className="text-white w-3.5 h-3.5" /></div>
             <h1 className="text-sm font-black text-white tracking-tighter italic uppercase">SHUDDHA DHARA</h1>
@@ -161,24 +164,24 @@ export default function ShuddhaDharaSite() {
           </div>
           <div className="text-[10px] font-black text-stone-700 tracking-widest uppercase bg-stone-900/50 px-4 py-2 rounded-full border border-stone-800">Based in India 🇮🇳</div>
         </div>
-        <div className="text-center border-t border-stone-900 pt-10">
-          <p className="text-stone-400 font-bold text-[12px] uppercase tracking-[0.2em] leading-relaxed">
+        <div className="text-center border-t border-stone-900 pt-12">
+          <p className="text-stone-400 font-bold text-[13px] uppercase tracking-[0.2em] leading-relaxed">
             © 2026 <span className="text-white">SHUDDHA DHARA</span> • ECO-FRIENDLY SUBSCRIPTION • REFILL. REUSE. REPEAT.
           </p>
         </div>
       </footer>
 
-      {/* --- CART MODAL (With Photos & List) --- */}
+      {/* --- CART MODAL (With Photos) --- */}
       <Modal isOpen={showCart} onClose={() => setShowCart(false)} title="Your Shopping Jar">
         {cartItems.length === 0 ? (
           <div className="py-20 text-center opacity-30 italic font-medium">Your jar is empty...</div>
         ) : (
           <div className="space-y-6">
-            <div className="max-h-[40vh] overflow-y-auto pr-2 space-y-4">
+            <div className="max-h-[45vh] overflow-y-auto pr-2 space-y-4 custom-scrollbar">
               {cartItems.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 p-4 bg-black/50 rounded-2xl border border-stone-800 group transition hover:border-stone-700">
-                  <div className="w-16 h-16 bg-stone-900 rounded-xl flex items-center justify-center border border-stone-800 group-hover:bg-green-950/20">
-                    <Package className="w-8 h-8 text-stone-700 group-hover:text-green-600" />
+                  <div className="w-16 h-16 bg-stone-900 rounded-xl overflow-hidden border border-stone-800">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover opacity-80" />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-bold text-sm">{item.name}</h4>
@@ -193,18 +196,19 @@ export default function ShuddhaDharaSite() {
                 <span className="text-stone-500 font-bold uppercase text-[10px] tracking-widest">Total Items</span>
                 <span className="text-2xl font-black text-white">{cartItems.length}</span>
               </div>
-              <button className="w-full bg-green-600 text-white py-5 rounded-2xl font-black text-lg hover:bg-green-500 transition shadow-xl shadow-green-900/20 uppercase">PROCEED TO CHECKOUT</button>
+              <button className="w-full bg-green-600 text-white py-5 rounded-2xl font-black text-lg hover:bg-green-500 transition shadow-xl shadow-green-900/20 uppercase tracking-widest">PROCEED TO CHECKOUT</button>
             </div>
           </div>
         )}
       </Modal>
 
-      {/* Signup Modal Placeholder */}
+      {/* --- SIGNUP MODAL --- */}
       <Modal isOpen={showSignup} onClose={() => setShowSignup(false)} title="Join the Revolution">
         <div className="space-y-6">
           <input type="text" placeholder="Full Name" className="w-full p-5 bg-black rounded-2xl border border-stone-800 outline-none focus:border-green-600 text-white" />
           <input type="email" placeholder="Email Address" className="w-full p-5 bg-black rounded-2xl border border-stone-800 outline-none focus:border-green-600 text-white" />
-          <button className="w-full bg-green-600 text-white py-5 rounded-2xl font-black text-lg">CREATE ACCOUNT</button>
+          <button className="w-full bg-green-600 text-white py-5 rounded-2xl font-black text-lg shadow-2xl shadow-green-900/20">CREATE ACCOUNT</button>
+          <p className="text-xs text-center text-stone-500 font-bold uppercase tracking-widest">Start your zero-waste journey today.</p>
         </div>
       </Modal>
     </div>
