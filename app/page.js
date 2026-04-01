@@ -1,3 +1,5 @@
+"use client"; // <--- Ye line Next.js build error fix kar degi
+
 import React, { useState } from 'react';
 import { Leaf, Recycle, ShoppingCart, Truck, ShieldCheck, ChevronRight, Package, BarChart3 } from 'lucide-react';
 
@@ -72,7 +74,7 @@ const FeatureCard = ({ icon: Icon, title, desc }) => (
   </div>
 );
 
-const ProductCard = ({ name, price, weight, color }) => (
+const ProductCard = ({ name, price, weight }) => (
   <div className="bg-white p-5 rounded-3xl border border-stone-100 hover:border-green-200 transition group relative overflow-hidden">
     <div className={`h-48 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden bg-stone-100`}>
        <Package className="w-12 h-12 text-stone-300" />
@@ -92,6 +94,8 @@ const ProductCard = ({ name, price, weight, color }) => (
 // --- Main Page ---
 
 export default function ShuddhaDharaSite() {
+  const [count, setCount] = useState(0); // Testing useState to ensure "use client" works
+
   return (
     <div className="min-h-screen bg-[#FCFAFA] text-stone-900 selection:bg-green-200 selection:text-green-900">
       <Navbar />
