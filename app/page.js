@@ -176,10 +176,10 @@ export default function ShuddhaDharaSite() {
           </div>
         </div>
 
-        <div className="text-center">
-          <p className="text-stone-800 font-black text-[9px] uppercase tracking-[0.5em] leading-relaxed">
-            © 2026 SHUDDHA DHARA • ECO-FRIENDLY SUBSCRIPTION • REFILL. REUSE. REPEAT.
-          </p>
+        <div className="text-center border-t border-stone-900 pt-10">
+        <p className="text-stone-400 font-bold text-[12px] uppercase tracking-[0.2em] leading-relaxed">
+       © 2026 <span className="text-white">SHUDDHA DHARA</span> • ECO-FRIENDLY SUBSCRIPTION • REFILL. REUSE. REPEAT.
+        </p>
         </div>
       </footer>
 
