@@ -158,8 +158,29 @@ export default function ShuddhaDharaSite() {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="mt-32 text-center text-stone-600 font-black text-[11px] uppercase tracking-[0.6em] pb-10 border-t border-stone-900 pt-20 max-w-5xl mx-auto">
-        © 2026 Shuddha Dhara • Eco-Friendly Subscription • India
+      <footer className="mt-12 border-t border-stone-900/50 pt-12 pb-10 px-8 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+          <div className="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 transition cursor-default">
+            <div className="bg-stone-800 p-1.5 rounded-lg"><Leaf className="text-white w-3.5 h-3.5" /></div>
+            <h1 className="text-sm font-black text-white tracking-tighter italic uppercase">SHUDDHA DHARA</h1>
+          </div>
+          
+          <div className="flex gap-10 text-[10px] font-black text-stone-600 tracking-[0.2em] uppercase">
+            <a href="#" className="hover:text-green-500 transition">Instagram</a>
+            <a href="#" className="hover:text-green-500 transition">Twitter</a>
+            <a href="#" className="hover:text-green-500 transition">Privacy</a>
+          </div>
+
+          <div className="text-[10px] font-black text-stone-700 tracking-widest uppercase bg-stone-900/50 px-4 py-2 rounded-full border border-stone-800">
+            Based in India 🇮🇳
+          </div>
+        </div>
+
+        <div className="text-center">
+          <p className="text-stone-800 font-black text-[9px] uppercase tracking-[0.5em] leading-relaxed">
+            © 2026 SHUDDHA DHARA • ECO-FRIENDLY SUBSCRIPTION • REFILL. REUSE. REPEAT.
+          </p>
+        </div>
       </footer>
 
       {/* --- MODALS --- */}
