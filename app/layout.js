@@ -1,4 +1,3 @@
-import './globals.css' // Agar ye file nahi hai toh niche wali line check karo
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
